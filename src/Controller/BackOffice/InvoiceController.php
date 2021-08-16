@@ -80,10 +80,10 @@ class InvoiceController extends AbstractBaseController
      *
      * @IsGranted("ROLE_ADMIN")
      *
-     * @param Customer $invoice
+     * @param Invoice $invoice
      * @return Response
      */
-    public function delete(Customer $invoice): Response
+    public function delete(Invoice $invoice): Response
     {
         if ($this->remove($invoice)) {
             $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
