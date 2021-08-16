@@ -71,7 +71,7 @@ class InvoiceController extends AbstractBaseController
         }
         return $this->render("back_office/invoice/manage.html.twig", [
             "form" => $form->createView(),
-            "Customer" => $invoice
+            "invoice" => $invoice
         ]);
     }
 

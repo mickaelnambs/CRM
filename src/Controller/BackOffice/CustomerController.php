@@ -68,7 +68,7 @@ class CustomerController extends AbstractBaseController
         }
         return $this->render("back_office/customer/manage.html.twig", [
             "form" => $form->createView(),
-            "Customer" => $customer
+            "customer" => $customer
         ]);
     }
 
