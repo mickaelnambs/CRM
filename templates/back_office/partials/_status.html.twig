@@ -1,0 +1,11 @@
+{% if status == 'SENT' %}
+    {% set color = 'success' %}
+{% elseif status == 'CANCELED' %}
+    {% set color = 'danger' %}
+{% elseif status == '' %}
+    {% set color = 'info' %}
+{% endif %}
+
+<span class="badge badge-{{ color }} mr-1">
+    {{ label }}
+</span>

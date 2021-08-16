@@ -1,0 +1,53 @@
+<!-- Main Sidebar Container -->
+<aside class="bg-perfect-1 main-sidebar sidebar-dark-primary text-white elevation-4">
+	<!-- Brand Logo -->
+	<a href="#" class="brand-link">
+		<p class="ml-5">CRM</p>
+	</a>
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="info">
+				<a href="#" class="ml-4">{{app.user.email}}</a>
+			</div>
+		</div>
+		<nav class="mt-2">
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				<li class="nav-item">
+					<a href="{{ path('dashboard') }}" class="nav-link">
+						<i class="nav-icon fas fa-cloud"></i>
+						<p>
+							Tableau de bord
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{ path('admin_customer_index') }}" class="nav-link">
+						<i class="nav-icon fas fa-users"></i>
+						<p>
+							Clients
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{ path('admin_invoice_index') }}" class="nav-link">
+						<i class="nav-icon fas fa-file-invoice"></i>
+						<p>
+							Factures
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{ path('admin_user_index') }}" class="nav-link">
+						<i class="nav-icon fas fa-user"></i>
+						<p>
+							Utilisateurs
+						</p>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- /.sidebar-menu -->
+	</div>
+	<!-- /.sidebar -->
+</aside>

@@ -1,0 +1,42 @@
+{% extends "back_office/base.html.twig" %}
+{% block title %}Gestion du client{% endblock %}
+{% block body %}
+    <div class="content-header">
+        <div class="container-fluid">
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="card bg-light">
+                        <div class="card-header bg-dark">
+                            <h2 class="alert-heading text-center">Gestion du client</h2>
+                        </div>
+                        <div class="card-body">
+                            {{ form_row(form.firstName) }}
+                            {{ form_row(form.lastName) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.company) }}
+                            {{ form_row(form.user) }}
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="green-icon btn btn-primary mr-3">
+                                <i class="fa fa-check"></i>
+                                Sauvegarder
+                            </button>
+                            <a href="{{ path("admin_user_index") }}" class="btn btn-secondary">
+                                <span class="fa fa-arrow-left"></span>
+                                Retour
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            {{ form_end(form)}}
+        </div>
+    </section>
+{% endblock %}

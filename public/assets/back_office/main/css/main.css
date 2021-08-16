@@ -1,0 +1,52 @@
+.bg-perfect-1 {
+    background-color: #048B9A;
+    color: white;
+}
+
+.circle-img {
+    width: 65px;
+    height: 65px;
+    overflow: hidden;
+}
+  
+.circle-img img {
+    height: 100%;
+    transform: translateX(-50%);
+    margin-left: 50%;
+}
+
+.icon {
+    max-width: 128px;
+    max-height: 128px;
+}
+
+.icon-medium {
+    max-width: 110px;
+    max-height: 110px;
+}
+
+.icon-mini {
+    max-width: 45px;
+    max-height: 45px;
+}
+
+.icon-micro {
+    max-width: 25px;
+    min-width: 25px;
+}
+
+.perfect-logo {
+    font-size: 10px;
+}
+
+.bg-perfect-1:hover {
+    background-color: #048B9A;
+}
+
+.bg-perfect-2 {
+    background-color: #A87526;
+}
+
+.bg-perfect-3 {
+    background-color: #A87526;
+}

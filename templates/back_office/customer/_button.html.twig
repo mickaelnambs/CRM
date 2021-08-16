@@ -1,0 +1,9 @@
+{# Edit #}
+<a href="{{ path('admin_customer_manage', {'id': customer.id}) }}" class="item-edit text-warning pr-1">
+    <i class="fas fa-edit"></i>
+</a>
+
+{# Delete #}
+<a data-href="{{ path('admin_customer_delete', {'id': customer.id}) }}" class="item-edit text-danger delete" data-toggle="modal" data-target="#modal-default">
+    <i class="fas fa-trash"></i>
+</a>

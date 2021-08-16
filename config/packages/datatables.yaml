@@ -1,0 +1,24 @@
+# Latest documentation available at https://omines.github.io/datatables-bundle/#configuration
+datatables:
+
+    # Load i18n data from DataTables CDN or locally
+    language_from_cdn: true
+
+    # Default HTTP method to be used for callbacks
+    method: GET # One of "GET"; "POST"
+
+    # Set options, as documented at https://datatables.net/reference/option/
+    options:
+        lengthMenu : [5, 10, 25, 50]
+        pageLength: 10
+        searching: true
+        dom: "<'row' <'col-sm-12 col-md-6' l> <'col-sm-12 col-md-6' f>> <'row' <'col-sm-12' tr>> <'row' <'col-sm-12 col-md-5' i> <'col-sm-12 col-md-7' p> > "
+        fixedHeader: true
+        # dom:'<"html5buttons"B>lTfgitp',
+
+    template_parameters:
+        # Example classes to integrate nicely with Bootstrap 3.x
+        className: 'table table-sm table-striped dataex-html5-selectors dataTable table-hover-animation dt-multilingual table no-footer dtr-column'
+
+    # You can for example override this to "tables" to keep the translation domains separated nicely
+    translation_domain: 'messages'

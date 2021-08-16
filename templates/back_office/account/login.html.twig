@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Perfect Exchange - Connexion à l'administration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('static/back_office/main/css/login.css') }}">
+</head>
+<body>
+<div class="container my-5 mb-4">
+    <div class="row">
+        <div class="col-md-3">&nbsp;</div>
+        <div class="col-md-5">
+            <div class="card bg-light">
+                <div class="card-header bg-light">
+                    <h4 class="card-title text-center">
+                        <i class="fa fa-lock"></i>
+                        Administration
+                    </h4>
+                </div>
+                <div class="card-body">
+                    {% if hasError %}
+                        <div class="alert alert-danger">
+                            <p>Les informations que vous avez fournies ne sont pas bonnes.</p>
+                        </div>
+                    {% endif %}
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="_username">Email</label><input type="text" class="form-control" placeholder="Adresse email ..." name="_username" value="{{ username }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="_password">Mot de passe</label><input type="password" class="form-control" placeholder="Mot de passe ..." name="_password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                Se connecter
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

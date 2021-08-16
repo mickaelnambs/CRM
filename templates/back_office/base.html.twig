@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			CRM - {% block title %}Administration!{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+		{% block stylesheets %}
+			{% include "back_office/partials/_link.html.twig" %}
+		{% endblock %}
+	</head>
+	<body class="hold-transition sidebar-mini layout-fixed">
+		<div class="wrapper">
+			{% include "back_office/partials/_navbar.html.twig" %}
+			<div class="container-fluid">
+				<div class="content-wrapper bg-white">
+					{% include "back_office/partials/_sidebar.html.twig" %}
+					<div class="content">
+						{% include "back_office/partials/_message.html.twig" %}
+						{% block body %}{% endblock %}
+					</div>
+				</div>
+			</div>
+			{% include "back_office/partials/_footer.html.twig" %}
+		</div>
+		{% block javascripts %}
+			{% include "back_office/partials/_script.html.twig" %}
+		{% endblock %}
+	</body>
+</html>

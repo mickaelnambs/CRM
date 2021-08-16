@@ -1,0 +1,53 @@
+import React from 'react'
+
+const Pagination = ({ currentPage, itemsPerPage, length, onPageChanged }) => {
+
+    const pagesCount = Math.ceil(length / itemsPerPage);
+    const pages = [];
+
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
+
+    return ( 
+            <div>
+                <ul className="pagination pagination-sm">
+                    <li className={"page-item" + (currentPage !== 1 ? "" : " disabled")}>
+                        <button
+                            onClick={() => onPageChanged(currentPage - 1)}
+                            className="page-link"
+                        >
+                            &laquo;
+                        </button>
+                    </li>
+                        {pages.map((page, id) => (
+                            <li key={id}className={"page-item" + (currentPage === page && " active")}>
+                                <button
+                                    className="page-link"
+                                    onClick={() => onPageChanged(page)}
+                                >
+                                    {page}
+                                </button>    
+                            </li>
+                        ))}
+                    <li className={"page-item" + (currentPage === pagesCount ? " disabled" : "")}>
+                        <button
+                            onClick={() => onPageChanged(currentPage + 1)}
+                            className="page-link"
+                            href="#"
+                        >
+                            &raquo;
+                        </button>
+                    </li>
+                </ul>
+            </div>
+    );
+}
+
+// Calcul pour la pagination.
+Pagination.getData = (items, currentPage, itemsPerPage) => {
+    const start = currentPage * itemsPerPage - itemsPerPage;
+    return items.slice(start, start + itemsPerPage);
+}
+ 
+export default Pagination;
