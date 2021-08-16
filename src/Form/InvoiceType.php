@@ -27,9 +27,9 @@ class InvoiceType extends AbstractType
             ->add('status', ChoiceType::class, [
                 "label" => "Status",
                 "choices" => [
-                    "PAYE" => "PAID",
-                    "ENVOYE" => "SENT",
-                    "ANNULE" => "CANCELED"
+                    "PAID" => "PAID",
+                    "SENT" => "SENT",
+                    "CANCELED" => "CANCELED"
                 ]
             ])
             ->add('chrono', IntegerType::class, [
