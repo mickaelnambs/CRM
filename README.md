@@ -1,6 +1,6 @@
 # Requirements 
 ```
-- php ^7.2
+- php ^7.4
 - NodeJs
 - yarn or npm
 - symfony cli
