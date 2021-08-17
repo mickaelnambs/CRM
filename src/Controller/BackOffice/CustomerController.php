@@ -5,9 +5,9 @@ namespace App\Controller\BackOffice;
 
 use App\Constant\MessageConstant;
 use App\Controller\AbstractBaseController;
-use App\DataTable\CustomerDataTableType;
 use App\Entity\Customer;
 use App\Form\CustomerType;
+use App\Form\DataTable\CustomerDataTableType;
 use http\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,11 +61,14 @@ class CustomerController extends AbstractBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($this->save($customer)) {
                 $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
+                
                 return $this->redirectToRoute("admin_customer_index");
             }
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
+
             return $this->redirectToRoute("admin_customer_manage", ["id" => $customer->getId() ?? null]);
         }
+
         return $this->render("back_office/customer/manage.html.twig", [
             "form" => $form->createView(),
             "customer" => $customer
@@ -87,6 +90,7 @@ class CustomerController extends AbstractBaseController
         } else {
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
         }
+
         return $this->redirectToRoute("admin_customer_index");
     }
 }

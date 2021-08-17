@@ -3,12 +3,12 @@
 namespace App\Controller\BackOffice;
 
 use App\Entity\User;
+use App\Form\DataTable\UserDataTableType;
 use App\Form\UserType;
 use App\Form\ProfileUpdate;
 use App\Form\PasswordUpdateType;
 use App\Constant\MessageConstant;
 use App\Repository\UserRepository;
-use App\DataTable\UserDataTableType;
 use App\Controller\AbstractBaseController;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -67,11 +67,14 @@ class UserController extends AbstractBaseController
 
             if ($this->save($user)) {
                 $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
+
                 return $this->redirectToRoute("admin_user_index");
             }
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
+
             return $this->redirectToRoute("admin_user_new");
         }
+
         return $this->render("back_office/user/new.html.twig", [
             "form" => $form->createView()
         ]);
@@ -95,11 +98,14 @@ class UserController extends AbstractBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($this->save($user)) {
                 $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
+
                 return $this->redirectToRoute("admin_user_index");
             }
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
+
             return $this->redirectToRoute("admin_user_update", ["id" => $user->getId()]);
         }
+
         return $this->render("back_office/user/update.html.twig", [
             "form" => $form->createView(),
             "user" => $user
@@ -124,11 +130,14 @@ class UserController extends AbstractBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($this->save($user)) {
                 $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
+
                 return $this->redirectToRoute("admin_user_index");
             }
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
+
             return $this->redirectToRoute("admin_update_profile", ["id" => $user->getId()]);
         }
+
         return $this->render("back_office/user/update.html.twig", [
             "form" => $form->createView(),
             "user" => $user
@@ -150,6 +159,7 @@ class UserController extends AbstractBaseController
         } else {
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
         }
+
         return $this->redirectToRoute("admin_user_index");
     }
 
@@ -173,11 +183,14 @@ class UserController extends AbstractBaseController
 
             if ($this->save($user)) {
                 $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
+
                 return $this->redirectToRoute("admin_app_logout");
             }
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
+
             return $this->redirectToRoute("password_update");
         }
+        
         return $this->render("back_office/user/password_update.html.twig", [
             "form" => $form->createView()
         ]);

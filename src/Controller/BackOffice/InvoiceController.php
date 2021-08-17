@@ -5,11 +5,10 @@ namespace App\Controller\BackOffice;
 
 use App\Constant\MessageConstant;
 use App\Controller\AbstractBaseController;
-use App\DataTable\CustomerDataTableType;
-use App\DataTable\InvoiceDataTableType;
 use App\Entity\Customer;
 use App\Entity\Invoice;
 use App\Form\CustomerType;
+use App\Form\DataTable\InvoiceDataTableType;
 use App\Form\InvoiceType;
 use http\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -64,9 +63,11 @@ class InvoiceController extends AbstractBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($this->save($invoice)) {
                 $this->addFlash(MessageConstant::SUCCESS_TYPE, MessageConstant::SUCCESS_MESSAGE);
+
                 return $this->redirectToRoute("admin_invoice_index");
             }
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
+
             return $this->redirectToRoute("admin_invoice_manage", ["id" => $invoice->getId() ?? null]);
         }
         return $this->render("back_office/invoice/manage.html.twig", [
@@ -90,6 +91,7 @@ class InvoiceController extends AbstractBaseController
         } else {
             $this->addFlash(MessageConstant::ERROR_TYPE, MessageConstant::ERROR_MESSAGE);
         }
+        
         return $this->redirectToRoute("admin_invoice_index");
     }
 }

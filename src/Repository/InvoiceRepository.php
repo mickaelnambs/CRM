@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Invoice;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -20,6 +22,10 @@ class InvoiceRepository extends ServiceEntityRepository
         parent::__construct($registry, Invoice::class);
     }
 
+    /**
+     * @param User $user
+     * @return int|mixed|string
+     */
     public function findNextChrono(User $user)
     {
         try {
@@ -35,6 +41,19 @@ class InvoiceRepository extends ServiceEntityRepository
         } catch (\Exception $e) {
             return 1;
         }
+    }
+
+    /**
+     * @return number of invoice
+     * @throws NoResultException
+     * @throws NonUniqueResultException
+     */
+    public function getInvoicesCount()
+    {
+        return $this->createQueryBuilder('i')
+                    ->select('count(i.id)')
+                    ->getQuery()
+                    ->getSingleScalarResult();
     }
 
     // /**

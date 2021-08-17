@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\DataTable;
+namespace App\Form\DataTable;
 
 
 use App\Controller\AbstractBaseController;
