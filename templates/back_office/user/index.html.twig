@@ -1,0 +1,44 @@
+{% extends "back_office/base.html.twig" %}
+{% block title %}Liste des utilisateurs{% endblock %}
+{% block body %}
+    {% include "back_office/partials/_modal.html.twig" %}
+    <section class="content mt-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="card-title">Liste des utilisateurs</h3>
+                                <div>
+                                    <a href="{{ path('export_user') }}" class="btn btn-warning mr-2">
+                                        <span class="fa fa-file-export"></span>
+                                        Exporter en csv
+                                    </a>
+                                    <a href="{{ path('admin_user_new') }}" class="btn btn-primary">
+                                        <span class="fa fa-plus"></span>
+                                        Ajouter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="users">Chargement...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(function() {
+            btnDelete(".delete", "#modal-default", '#users')
+            $('#users').initDataTables({{ datatable_settings(users) }});
+        });
+    </script>
+    <script src="{{ asset('assets/back_office/main/js/main.js') }}"></script>
+{% endblock %}
